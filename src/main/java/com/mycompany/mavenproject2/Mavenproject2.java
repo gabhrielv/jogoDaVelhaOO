@@ -5,6 +5,7 @@
 package com.mycompany.mavenproject2;
 
 import java.util.Scanner;
+import java.util.*;
 
 /**
  *
@@ -74,7 +75,8 @@ public class Mavenproject2 {
         final int max = 2;
         Scanner teclado = new Scanner(System.in);
         char l;
-        pvp[] jogador = new pvp[max];
+        int x = 0;
+        List<jogador> player = new ArrayList<>();
         for(int i = 1; i <= 2; i++){
             System.out.println("╔════════════════════════════╗");
             System.out.println("║          Jogador "+i+"         ║");
@@ -85,7 +87,7 @@ public class Mavenproject2 {
                 System.out.println("Opção inválida!");
                 ladopvp();
             }
-            jogador[i].letra = l; // tem algum problema aqui, ainda nao olhei
+            player.add(new jogador(l, x) ); // tem algum problema aqui, ainda nao olhei
             
         }
         if(jogador[1].letra == jogador[2].letra){
