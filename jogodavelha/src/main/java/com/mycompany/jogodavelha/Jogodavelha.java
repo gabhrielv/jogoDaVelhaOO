@@ -13,11 +13,12 @@ import java.util.*;
  * @author ice
  */
 public class Jogodavelha{
+    private static tabuleiro tab;
     public static void main(String[] args) {
         limpar();
         Scanner teclado = new Scanner(System.in);
         int opcao;
-
+        tab = new tabuleiro();
         do {
 
 
@@ -52,7 +53,7 @@ public class Jogodavelha{
         
     }
     
-    public void modo() {
+    public static void modo() {
         Scanner teclado = new Scanner(System.in);
         int x;
         limpar();
@@ -72,7 +73,7 @@ public class Jogodavelha{
     }
 
 
-    public void ladopvp() {
+    public static void ladopvp() {
         limpar();
         Scanner teclado = new Scanner(System.in);
         char l;
@@ -100,7 +101,7 @@ public class Jogodavelha{
     }
 
     
-    public void ladopve() {
+    public static void ladopve() {
         limpar();
         Scanner teclado = new Scanner(System.in);
         char l;
@@ -123,11 +124,12 @@ public class Jogodavelha{
         teclado.close();
     }
     
-    public void jogo () {
+    public static void jogo () {
         int x;
         Scanner teclado = new Scanner(System.in);
         System.out.println("Insira o local que deseja jogar:");
         x = teclado.nextInt();
+        tab.imprimetab();
     }
     
     public static void instrucao() {

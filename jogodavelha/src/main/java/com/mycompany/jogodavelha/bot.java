@@ -12,8 +12,7 @@ package com.mycompany.jogodavelha;
 public class bot {
     private char simb;
     private tabuleiro x;
-    
-    
+
     public bot(char simb){
         this.simb = simb;
         this.x = x;
@@ -22,7 +21,7 @@ public class bot {
     public char getSimb() {
         return simb;
     }
-    
+
     public int minimax(int depth, boolean isMax) {
         x.verificaJogo();
         return 0;
@@ -57,7 +56,6 @@ public class bot {
             return melhorPontuacao;
         }
     }
-
     public void encontrarMelhorJogada() {
         int melhorLinha = -1;
         int melhorColuna = -1;
@@ -65,10 +63,10 @@ public class bot {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (tabuleiro.getPosicoes()[i][j] == ' ') {
-                    tabuleiro.fazerJogada(simb, i, j);
-                    int pontuacaoMovimento = minimax(tabuleiro, 0, false);
-                    tabuleiro.getPosicoes()[i][j] = ' ';
+                if (x.getPosicoes()[i][j] == ' ') {
+                    x.fazerJogada(simb, i, j);
+                    int pontuacaoMovimento = minimax(x, 0, false);
+                    x.getPosicoes()[i][j] = ' ';
                     if (pontuacaoMovimento > melhorPontuacao) {
                         melhorPontuacao = pontuacaoMovimento;
                         melhorLinha = i;
@@ -79,8 +77,7 @@ public class bot {
         }
 
         if (melhorLinha != -1 && melhorColuna != -1) {
-            tabuleiro.fazerJogada(simb, melhorLinha, melhorColuna);
-            System.out.println("Melhor movimento para " + simb + ": (" + melhorLinha + ", " + melhorColuna + ")");
+            x.fazerJogada(simb, melhorLinha, melhorColuna);
         }
     }
 }
